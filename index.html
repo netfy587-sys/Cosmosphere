@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cosmosphere – Science, travel, tech and wellbeing explained</title>
+<meta name="description" content="Cosmosphere publishes original articles on science, world travel, technology and everyday wellbeing, written to be clear, useful and trustworthy.">
+<link rel="canonical" href="https://www.yourdomain.com/">
+<meta property="og:title" content="Cosmosphere">
+<meta property="og:description" content="Original articles on science, travel, technology and wellbeing.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+
+<!-- GOOGLE ADSENSE: paste your own code here after approval.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<style>
+:root{
+  --bg:#f6f8fd; --ink:#101733; --muted:#566080; --card:#ffffff; --line:#dbe1f2;
+  --cobalt:#2447e8; --cyan:#17c3d9; --hot:#ff5a36; --hero:#0c1230; --hero-ink:#f2f5ff; --tint:#e9eefc;
+  --head:'Sora','Trebuchet MS',Arial,sans-serif;
+  --body:'Literata',Georgia,'Times New Roman',serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0a0f26; --ink:#eef1ff; --muted:#a3acd0; --card:#121a3a; --line:#25305c;
+    --cobalt:#7f9bff; --cyan:#3fd8ea; --hot:#ff7d5e; --hero:#060a1c; --hero-ink:#f2f5ff; --tint:#18224a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0a0f26; --ink:#eef1ff; --muted:#a3acd0; --card:#121a3a; --line:#25305c;
+  --cobalt:#7f9bff; --cyan:#3fd8ea; --hot:#ff7d5e; --hero:#060a1c; --hero-ink:#f2f5ff; --tint:#18224a;
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.75}
+a{color:var(--cobalt)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--hot);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--head);line-height:1.2;margin:0 0 .55em;font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
+
+/* Masthead: wordmark centred, floating pill nav */
+.mast{text-align:center;padding:calc(env(safe-area-inset-top,0px) + 1.4rem) 0 .4rem}
+.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);font-family:var(--head);font-weight:800;font-size:2rem;letter-spacing:-.02em}
+.brand svg{width:42px;height:42px}
+.pill{position:sticky;top:calc(env(safe-area-inset-top,0px) + .6rem);z-index:20;margin:.8rem auto 0;width:max-content;max-width:calc(100% - 1.5rem);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .5rem;box-shadow:0 6px 22px rgba(16,23,51,.12)}
+.pill ul{display:flex;flex-wrap:wrap;justify-content:center;gap:.1rem;list-style:none;margin:0;padding:0;font-family:var(--head);font-weight:500;font-size:.88rem}
+.pill a{display:block;color:var(--ink);text-decoration:none;padding:.4rem .85rem;border-radius:999px}
+.pill a:hover{background:var(--tint)}
+
+/* Hero feature */
+.feature{margin:1.6rem 0 0;border-radius:26px;background:var(--hero);color:var(--hero-ink);display:grid;grid-template-columns:1.1fr 1fr;align-items:center;overflow:hidden}
+.feature .txt{padding:2.4rem}
+.feature h1{font-size:clamp(1.8rem,4vw,2.7rem)}
+.feature h1 a{color:inherit;text-decoration:none}
+.feature h1 a:hover{text-decoration:underline}
+.feature p{color:#b8c2e6;margin:0 0 1.3rem}
+.kicker{font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--cyan)}
+.btn{display:inline-block;background:var(--hot);color:#fff;font-family:var(--head);font-weight:700;text-decoration:none;padding:.8rem 1.5rem;border-radius:999px}
+.btn:hover{filter:brightness(1.08)}
+.feature .art{display:flex;justify-content:center;padding:1.5rem}
+.feature svg{width:100%;max-width:300px}
+@media (prefers-reduced-motion:no-preference){.feature .tilt{transform-origin:150px 150px;animation:tilt 40s linear infinite}}
+@keyframes tilt{to{transform:rotate(360deg)}}
+
+/* Trending strip */
+.trend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:1.6rem 0 0}
+.trend a{display:flex;gap:.7rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.9rem 1rem;text-decoration:none;color:var(--ink);font-family:var(--head);font-weight:600;font-size:.9rem;line-height:1.35}
+.trend a:hover{border-color:var(--cobalt)}
+.trend b{color:var(--hot);font-size:1.3rem;line-height:1}
+.sec-title{font-size:1.55rem;margin:2.4rem 0 1.1rem}
+
+/* Ads */
+.ad-slot{margin:1.8rem 0;text-align:center}
+.ad-slot small{display:block;font-family:var(--head);font-size:.72rem;color:var(--muted);margin-bottom:.3rem}
+.ad-box{min-height:100px;border:1px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;font-family:var(--head)}
+
+/* Article cards: first spans two columns */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.card .band{height:10px;background:linear-gradient(90deg,var(--cobalt),var(--cyan))}
+.card:nth-child(3n) .band{background:linear-gradient(90deg,var(--hot),var(--cobalt))}
+.card .in{padding:1.5rem 1.6rem 1.4rem}
+.card.wide{grid-column:1/-1}
+.card.wide .in{max-width:780px}
+.card h3{font-size:1.25rem}
+.card h3 a{color:var(--ink);text-decoration:none}
+.card h3 a:hover{color:var(--cobalt);text-decoration:underline}
+.meta{font-family:var(--head);font-size:.78rem;color:var(--muted);margin:0 0 .7rem}
+.card p{margin:.2rem 0 .8rem;font-size:1rem}
+.more{font-family:var(--head);font-weight:700;font-size:.9rem}
+
+/* About + disclaimer */
+.duo{display:grid;grid-template-columns:1fr 1.25fr;gap:2.2rem;align-items:start}
+.duo h2{font-size:1.4rem}
+.disclaimer{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.5rem 1.7rem;box-shadow:inset 0 5px 0 var(--hot)}
+.disclaimer h3{font-size:.95rem;margin:1rem 0 .15rem}
+.disclaimer h3:first-of-type{margin-top:.6rem}
+.disclaimer p{margin:.1rem 0 .5rem;font-size:.98rem}
+
+/* Footer: centred */
+footer{margin-top:3rem;background:var(--hero);color:var(--hero-ink);text-align:center;padding:2.4rem 0 2.8rem;font-size:.95rem}
+footer a{color:var(--hero-ink)}
+footer .brand{color:var(--hero-ink);font-size:1.5rem}
+footer .brand svg{width:32px;height:32px}
+footer ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;gap:.4rem 1.3rem;margin:1rem 0;padding:0;font-family:var(--head);font-weight:500;font-size:.9rem}
+.copy{color:#9aa6d1;font-size:.88rem}
+
+/* Consent */
+#consent{position:fixed;left:1rem;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));max-width:620px;margin:0 auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:1rem 1.2rem;box-shadow:0 8px 30px rgba(0,0,0,.28);display:none;z-index:30;font-size:.95rem;line-height:1.5}
+#consent.show{display:block}
+#consent button{margin-top:.7rem;border:0;cursor:pointer;font-size:.92rem}
+
+@media (max-width:860px){
+  .feature,.duo{grid-template-columns:1fr}
+  .feature .art{order:-1;padding-bottom:0}
+  .feature svg{max-width:170px}
+  .trend{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .cards,.trend{grid-template-columns:1fr}
+  .feature .txt{padding:1.6rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mast">
+    <a class="brand" href="cosmosphere.html" aria-label="Cosmosphere home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2447e8"/><stop offset="1" stop-color="#17c3d9"/></linearGradient></defs><circle cx="24" cy="24" r="16" fill="url(#g)"/><ellipse cx="24" cy="24" rx="22" ry="7" fill="none" stroke="#ff5a36" stroke-width="3" transform="rotate(-20 24 24)"/></svg>
+      Cosmosphere
+    </a>
+  </div>
+  <nav class="pill" aria-label="Main navigation">
+    <ul>
+      <li><a href="cosmosphere.html">Home</a></li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="feature" aria-label="Featured article">
+    <div class="txt">
+      <span class="kicker">Featured · Science</span>
+      <h1><a href="#">Why every planet is round, and what exceptions teach us</a></h1>
+      <p>Gravity pulls matter toward a centre until a rocky or gaseous body settles into a sphere. We explain how that works, why small asteroids stay lumpy and what the odd shapes reveal about the early solar system.</p>
+      <a class="btn" href="#">Read the feature</a>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 300 300"><defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2447e8"/><stop offset="1" stop-color="#17c3d9"/></linearGradient></defs><g class="tilt"><ellipse cx="150" cy="150" rx="140" ry="40" fill="none" stroke="#ff5a36" stroke-width="5" transform="rotate(-20 150 150)"/><circle cx="278" cy="108" r="11" fill="#ff5a36"/></g><circle cx="150" cy="150" r="88" fill="url(#gs)"/><ellipse cx="122" cy="118" rx="26" ry="16" fill="#fff" opacity=".25"/></svg>
+    </div>
+  </section>
+
+  <h2 class="sec-title">Trending now</h2>
+  <div class="trend">
+    <a href="#"><b>1</b>How to plan a first trip abroad on a budget</a>
+    <a href="#"><b>2</b>Five habits that improve sleep quality</a>
+    <a href="#"><b>3</b>What is a light-year, really?</a>
+    <a href="#"><b>4</b>Keeping your phone secure while travelling</a>
+  </div>
+
+  <!-- Ad slot 1 -->
+  <div class="ad-slot" aria-label="Advertisement">
+    <small>Advertisement</small>
+    <div class="ad-box">Ad space</div>
+  </div>
+
+  <h2 class="sec-title" id="articles" style="margin-top:1rem">Latest articles</h2>
+  <div class="cards">
+    <article class="card wide">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Travel</span>
+        <h3><a href="#">How to plan a first trip abroad on a budget</a></h3>
+        <p class="meta">By the Cosmosphere Team · 11 min read</p>
+        <p>Your first international trip feels big, but a clear plan makes it manageable. We cover how to pick a destination by season and cost, when to book flights, how to understand visa rules from official sources and which small expenses people forget to include in their budget.</p>
+        <a class="more" href="#">Read the guide</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Wellbeing</span>
+        <h3><a href="#">Five habits that improve sleep quality</a></h3>
+        <p class="meta">7 min read</p>
+        <p>Consistent wake-up times, less evening screen light and a cooler room can all help. We explain the reasoning behind each habit and how to try them gently.</p>
+        <a class="more" href="#">Continue reading</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Science</span>
+        <h3><a href="#">What is a light-year, really?</a></h3>
+        <p class="meta">5 min read</p>
+        <p>It measures distance, not time. See how far light travels in a year and how that helps us picture the size of the galaxy.</p>
+        <a class="more" href="#">Continue reading</a>
+      </div>
+    </article>
+  </div>
+
+  <!-- Ad slot 2 -->
+  <div class="ad-slot" aria-label="Advertisement">
+    <small>Advertisement</small>
+    <div class="ad-box">Ad space</div>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Technology</span>
+        <h3><a href="#">Keeping your phone secure while travelling</a></h3>
+        <p class="meta">6 min read</p>
+        <p>Public Wi-Fi, lost devices and fake charging points are common risks. Simple settings and habits keep your data safer on the road.</p>
+        <a class="more" href="#">Continue reading</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Culture</span>
+        <h3><a href="#">How different countries celebrate the new year</a></h3>
+        <p class="meta">8 min read</p>
+        <p>From lantern festivals to midnight bells, a look at traditions around the world and the stories behind them.</p>
+        <a class="more" href="#">Continue reading</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Wellbeing</span>
+        <h3><a href="#">A gentle guide to starting a walking routine</a></h3>
+        <p class="meta">6 min read</p>
+        <p>Start small, choose a comfortable pace and track progress without pressure. Practical tips for building a habit that lasts.</p>
+        <a class="more" href="#">Continue reading</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="band"></div>
+      <div class="in">
+        <span class="kicker">Science</span>
+        <h3><a href="#">Why the sky is blue and sunsets are red</a></h3>
+        <p class="meta">5 min read</p>
+        <p>Light scatters differently depending on its colour and the distance it travels through the air. A clear, visual explanation.</p>
+        <a class="more" href="#">Continue reading</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="ad-slot" aria-label="Advertisement">
+    <small>Advertisement</small>
+    <div class="ad-box">Ad space</div>
+  </div>
+
+  <div class="duo" style="margin-top:2.4rem">
+    <section id="about">
+      <h2>About Cosmosphere</h2>
+      <p>Cosmosphere is an independent blog for people who like to understand how the world works. Our team writes every article from scratch, checks facts against reliable sources and updates posts when new information appears.</p>
+      <p>The site is supported by advertising, which keeps everything free to read. Ads never influence our editorial choices. Get in touch at <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>.</p>
+    </section>
+
+    <section id="disclaimer">
+      <h2>Disclaimer</h2>
+      <div class="disclaimer" role="note">
+        <h3>General information only</h3>
+        <p>Content on Cosmosphere is provided for general information and education. We work to keep it accurate and current, but we cannot guarantee that it is complete or error-free.</p>
+        <h3>Not professional advice</h3>
+        <p>Articles on health, wellbeing, travel, technology or any other subject are not medical, legal, financial or professional advice. Please consult a qualified professional and check official sources, such as government travel pages, before making decisions.</p>
+        <h3>Advertising and cookies</h3>
+        <p>Cosmosphere shows ads served by Google AdSense and possibly other partners, who may use cookies to personalise ads based on your visits to this and other sites. Details are in our <a href="privacy.html">Privacy Policy</a>. Ads are not endorsements.</p>
+        <h3>External links</h3>
+        <p>We may link to other websites and are not responsible for their content or privacy practices.</p>
+        <h3>Changes</h3>
+        <p>We may update this disclaimer at any time. Using this site means you accept our <a href="terms.html">Terms and Conditions</a>.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="cosmosphere.html">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16" fill="#2447e8"/><ellipse cx="24" cy="24" rx="22" ry="7" fill="none" stroke="#ff5a36" stroke-width="3" transform="rotate(-20 24 24)"/></svg>
+      Cosmosphere
+    </a>
+    <ul>
+      <li><a href="cosmosphere.html">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms and Conditions</a></li>
+    </ul>
+    <div class="copy">© <span id="yr">2026</span> Cosmosphere. All rights reserved. Contact: <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a></div>
+  </div>
+</footer>
+
+<div id="consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  We use cookies to run this site and to show ads. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a>.
+  <br><button class="btn" id="consent-ok" type="button">Got it</button>
+</div>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var box = document.getElementById('consent'), ok = false;
+  try { ok = localStorage.getItem('cosmosphere-consent') === '1'; } catch(e) {}
+  if(!ok) box.classList.add('show');
+  document.getElementById('consent-ok').addEventListener('click', function(){
+    box.classList.remove('show');
+    try { localStorage.setItem('cosmosphere-consent','1'); } catch(e) {}
+  });
+})();
+</script>
+</body>
+</html>
